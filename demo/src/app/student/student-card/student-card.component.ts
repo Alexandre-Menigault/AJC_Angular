@@ -9,5 +9,5 @@ import { Student } from '../student';
 })
 export class StudentCardComponent {
   @Input({required: true}) student!: Student;
-  @Input() isGradeVisible: boolean = false;
+  @Input("isGradeVisible") isGradeVisible: boolean = false;
 }

@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
     StudentFormComponent
   ],
   imports: [
-    CommonModule
+    CommonModule, FormsModule
   ],
   exports: [
     StudentListComponent

@@ -4,6 +4,8 @@
 @else {
     <h2>Liste des étudiants ({{students.length}})</h2>
 
+    <student-student-form  (studentAdded)="onStudentAdded($event)"></student-student-form>
+
     <button (click) = "areAllGradesVisible = !areAllGradesVisible">
         {{areAllGradesVisible ? 'Masquer' : 'Afficher'}} toutes les moyennes
     </button>

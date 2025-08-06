@@ -17,4 +17,9 @@ export class StudentService {
       throw new Error("Unable to fetch data")
     }
   }
+
+  addStudent(student: Student): Observable<Student> {
+    return this.http.post<Student>("http://localhost:3000/students", student);
+  }
+
 }

@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { Student } from '../student';
 import { StudentService } from '../student.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'student-student-list',
   standalone: false,
   templateUrl: './student-list.component.html',
-  styleUrl: './student-list.component.css',
+  styleUrl: './student-list.component.css'
 })
 export class StudentListComponent {
   students: Student[] = [];
@@ -25,6 +26,12 @@ export class StudentListComponent {
         this.errorLabel = err.message;
       },
     });
+  }
+
+  onStudentAdded(student: Student | null) {
+    if (student) {
+      this.students.push(student);
+    }
   }
 
 }
