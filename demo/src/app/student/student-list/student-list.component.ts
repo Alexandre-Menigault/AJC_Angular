@@ -6,27 +6,23 @@ import { StudentService } from '../student.service';
   selector: 'student-student-list',
   standalone: false,
   templateUrl: './student-list.component.html',
-  styleUrl: './student-list.component.css'
+  styleUrl: './student-list.component.css',
 })
 export class StudentListComponent {
-
-  students: Student[] = []
-  errorLabel: string | null = null
+  students: Student[] = [];
+  errorLabel: string | null = null;
 
   constructor(private service: StudentService) {
-    this.getstudents()
+    this.service.getStudents().subscribe({
+      next: (students) => {
+        this.students = students;
+        this.errorLabel = null;
+      },
+      error: (err: Error) => {
+        this.students = [];
+        this.errorLabel = err.message;
+      },
+    });
   }
 
-  async getstudents() {
-    try {
-      const students = await this.service.getStudents()
-      this.students = students
-      this.errorLabel = null
-    }
-    catch(e) {
-      this.students = []
-      this.errorLabel = (e as Error).message
-    }
-  }
- 
 }

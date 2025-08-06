@@ -1,21 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Student } from './student';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  async getStudents(): Promise<Student[]> {
-    return fetch("http://localhost:3000/students")
-      .then((data) => data.json())
-      .then((students) => {
-        return students
-      })
-      .catch(() => {
-        throw new Error("Unable to fetch data")
-      })
+  getStudents(): Observable<Student[]> {
+    try {
+      return this.http.get<Student[]>("http://localhost:3000/students")
+    } catch(e) {
+      throw new Error("Unable to fetch data")
+    }
   }
 }
