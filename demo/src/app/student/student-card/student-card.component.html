@@ -1,17 +1,15 @@
-@if(student) {
-
 <article>
-    <h4>{{ student.name }}</h4>
-    <button (click)="isGradeVisible = !isGradeVisible">
-        @if(isGradeVisible) { Masquer }
-        @else { Afficher }
-        la moyenne
-    </button>
+    <h4>{{student.name}} 
+        <button (click)="isGradeVisible = !isGradeVisible">
+            @if (isGradeVisible) {
+                Masquer moyenne
+            } @else {
+                Afficher moyenne
+            }
+        </button>
+    </h4>
     
-    @if(isGradeVisible) {
-    <span>{{ student.grade }}/20</span>
+    @if (isGradeVisible) {
+        <p>{{student.grade}}/20</p>
     }
-    
 </article>
-
-}

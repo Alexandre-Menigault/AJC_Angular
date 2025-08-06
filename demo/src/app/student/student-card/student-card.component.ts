@@ -8,6 +8,6 @@ import { Student } from '../student';
   styleUrl: './student-card.component.css'
 })
 export class StudentCardComponent {
-  @Input() student: Student | null = null;
+  @Input({required: true}) student!: Student;
   @Input() isGradeVisible: boolean = false;
 }

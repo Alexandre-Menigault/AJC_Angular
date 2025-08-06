@@ -12,6 +12,8 @@ export class StudentListComponent {
   students: Student[] = [];
   errorLabel: string | null = null;
 
+  areAllGradesVisible: boolean = false
+
   constructor(private service: StudentService) {
     this.service.getStudents().subscribe({
       next: (students) => {
