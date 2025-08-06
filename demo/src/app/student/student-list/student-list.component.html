@@ -12,6 +12,6 @@
 
     @for (student of students; track $index) {
 
-        <student-student-card [student]="student" [isGradeVisible]="areAllGradesVisible"></student-student-card>
+        <student-student-card (studentDeleted)="onDeleteStudent($event)" [student]="student" [isGradeVisible]="areAllGradesVisible"></student-student-card>
     }
 }

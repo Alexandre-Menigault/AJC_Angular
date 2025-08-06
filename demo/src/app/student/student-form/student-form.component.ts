@@ -16,11 +16,13 @@ export class StudentFormComponent {
 
   constructor( @Inject(StudentService) private studentService: StudentService) { }
 
+
+
   addStudent() {
     console.log("Adding student:", this.student);
     this.studentService.addStudent(this.student).subscribe({
       next: (student: Student) => {
-        this.student = {name:"", grade:0}; // Reset form
+        this.student = {name: "", grade: 0}; // Reset form
         this.studentAdded.emit(student); // Emit the added student
         this.message = `Student ${student.id} added successfully!`;
       },
@@ -28,7 +30,5 @@ export class StudentFormComponent {
         this.message = "Error adding student: " + err.message;
       }
     });
-
   }
-
 }

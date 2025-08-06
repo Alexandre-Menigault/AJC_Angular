@@ -1,5 +1,5 @@
 <article>
-    <h4>{{student.name}} 
+    <h4>{{student.name}}
         <button (click)="isGradeVisible = !isGradeVisible">
             @if (isGradeVisible) {
                 Masquer moyenne
@@ -8,8 +8,9 @@
             }
         </button>
     </h4>
-    
+
     @if (isGradeVisible) {
         <p>{{student.grade}}/20</p>
     }
+  <button (click)="deleteStudent()">Delete Student</button>
 </article>

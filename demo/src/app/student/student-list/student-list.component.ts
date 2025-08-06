@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import { Student } from '../student';
 import { StudentService } from '../student.service';
 import { FormsModule } from '@angular/forms';
@@ -33,5 +33,10 @@ export class StudentListComponent {
       this.students.push(student);
     }
   }
+
+  onDeleteStudent(student: Student) {
+    this.students = this.students.filter(s => s.id !== student.id);
+  }
+
 
 }

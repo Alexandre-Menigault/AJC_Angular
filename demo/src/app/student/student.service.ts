@@ -22,4 +22,8 @@ export class StudentService {
     return this.http.post<Student>("http://localhost:3000/students", student);
   }
 
+  deleteStudent(student: Student): Observable<void> {
+    return this.http.delete<void>(`http://localhost:3000/students/${student.id}`);
+  }
+
 }
