@@ -4,15 +4,17 @@ import { ToggleBtnComponent } from './toggle-btn/toggle-btn.component';
 import { QuoteComponent } from './quote/quote.component';
 import { CityChoiceComponent } from './city-choice/city-choice.component';
 import { CityCardComponent } from './city-card/city-card.component';
+import { PasswordComponent } from './password/password.component';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    ToggleBtnComponent, QuoteComponent, CityChoiceComponent, CityCardComponent
+    ToggleBtnComponent, QuoteComponent, CityChoiceComponent, CityCardComponent, PasswordComponent
   ],
   imports: [
-    CommonModule
+    CommonModule, FormsModule
   ],
-  exports: [ToggleBtnComponent, QuoteComponent, CityChoiceComponent]
+  exports: [ToggleBtnComponent, QuoteComponent, CityChoiceComponent, PasswordComponent, PasswordComponent]
 })
 export class ExosModule { }

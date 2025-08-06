@@ -46,14 +46,32 @@
       "grade": 2
     },
     {
-      "id": "dde7",
-      "name": "Maximus",
-      "grade": 14
+      "id": "c68d",
+      "name": "zczc",
+      "grade": 4
     },
     {
-      "id": "0155",
-      "name": "Minimus",
-      "grade": 10
+      "id": "aa93",
+      "name": "adad",
+      "grade": 4
+    }
+  ],
+  "passwords": [
+    {
+      "id": "5ab6",
+      "password": "A+J6zUgB8OV@dl"
+    },
+    {
+      "id": "0518",
+      "password": "lAE6PnfyD#1?pX"
+    },
+    {
+      "id": "ab5c",
+      "password": "I!p7TkHmH7Az1j"
+    },
+    {
+      "id": "cae2",
+      "password": "pwpw&3VodD26Lq"
     }
   ]
 }

@@ -1,13 +1,20 @@
-<div style="margin-bottom: 20px;">
-    <form>
-        <input type="text" name="name" [(ngModel)]="student.name" />
-        <input type="number" name="grade" [(ngModel)]="student.grade" />
-        <button (click)="onSubmit()">Ajouter l'étudiant</button>
-    </form>
+<div>
+  <form action="">
+    <p>
+      <input name="name" [(ngModel)]="student.name" type="text" placeholder="nom" />
+    </p>
+    <p>
+      <input name="grade" [(ngModel)]="student.grade" type="number" max="20" min="0" placeholder="grade" />
+    </p>
+    <p>
+      <button (click)="addStudent()">Ajouter</button>
+    </p>
+  </form>
 
-    <p>{{ student.name | uppercase }}</p>
-    <p>{{ student | json }}</p>
-    <p>{{ message }}</p>
+  <p>{{student | json}}</p>
+
+  @if (message) {
+    <p>{{message}}</p>
+  }
 
 </div>
-

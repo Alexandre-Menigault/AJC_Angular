@@ -28,18 +28,7 @@ export class StudentFormComponent {
         this.message = "Error adding student: " + err.message;
       }
     });
-    
+
   }
 
-  constructor(private studentService: StudentService) {}
-
-  onSubmit() {
-    console.log('submit');
-    this.studentService
-      .postStudent(this.student)
-      .subscribe(student => {
-        console.log(student);
-        this.message = "Student added with success";
-      })
-  }
 }
