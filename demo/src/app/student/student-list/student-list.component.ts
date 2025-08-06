@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { StudentService } from '../student.service';
 import { Student } from '../student';
+import { StudentService } from '../student.service';
 
 @Component({
   selector: 'student-student-list',
@@ -10,20 +10,23 @@ import { Student } from '../student';
 })
 export class StudentListComponent {
 
-  students: Student[] = [];
-  areAllGradesVisible: boolean = false;
+  students: Student[] = []
+  errorLabel: string | null = null
 
-  constructor(private studentService: StudentService) {
-    
-    // fetch('http://localhost:3000/students')
-    //   .then(res => res.json())
-    //   .then(students => console.log(students))
-
-    this.studentService
-      .getStudents()
-      .subscribe((students: Student[]) => this.students = students)
-    
-
+  constructor(private service: StudentService) {
+    this.getstudents()
   }
 
+  async getstudents() {
+    try {
+      const students = await this.service.getStudents()
+      this.students = students
+      this.errorLabel = null
+    }
+    catch(e) {
+      this.students = []
+      this.errorLabel = (e as Error).message
+    }
+  }
+ 
 }

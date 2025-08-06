@@ -1,17 +1,11 @@
-<h3>Liste des étudiants ({{ students.length }})</h3>
-
-<!-- emplacement temporaire du formulaire d'ajout étudiant -->
- <student-student-form />
-
-<button (click)="areAllGradesVisible = !areAllGradesVisible">
-    {{ areAllGradesVisible ? 'Masquer' : 'Afficher' }} toutes les moyennes
-</button>
-
-@for(student of students; track student) {
-
-<student-student-card 
-    [student]="student" 
-    [isGradeVisible]="areAllGradesVisible " 
-/>
-
+@if(errorLabel) {
+    <p>{{errorLabel}}</p>
+}
+@else {
+    <ul>
+        @for (student of students; track $index) {
+    
+            <li>{{student.name}}</li>
+        }
+    </ul>
 }
