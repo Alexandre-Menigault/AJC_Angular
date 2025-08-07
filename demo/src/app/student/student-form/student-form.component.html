@@ -1,21 +1,57 @@
 <div>
-  <form action="">
+
+  <h3>Nouvel Etudiant</h3>
+
+  <form #form="ngForm">
     <p>
-      <input name="name" [(ngModel)]="student.name" type="text" placeholder="nom" />
+      <label for="nom">Name</label>
+      <input
+        #name="ngModel"
+        name="nom"
+        [(ngModel)]="student.name"
+        type="text"
+        id="nom"
+        minlength="3"
+        required
+        placeholder="Nom" />
+
+      @if (name.invalid) {
+        <p>Le nom doit contenir au moins 3 caractères </p>
+      }
+
     </p>
-    <p>
-      <input name="grade" [(ngModel)]="student.grade" type="number" max="20" min="0" placeholder="grade" />
+    <p><label for="grade">Grade</label>
+      <input
+        #grade='ngModel'
+        name="grade"
+        [(ngModel)]="student.grade"
+        type="number"
+        max="20"
+        min="0"
+        required
+        value="-1"
+        id="grade"
+        placeholder="grade" />
     </p>
+
+    @if (grade.invalid) {
+      <p>Grade doit être entre 0 et 20 </p>
+    }
     <p>
-      <button (click)="addStudent()">Ajouter</button>
+      <button type="submit" [disabled]="form.invalid" (click)="addStudent()">Ajouter</button>
     </p>
   </form>
 
-  <p>{{student | json}}</p>
+  <section>
+    <p>{{student | json}}</p>
+    
+    <p>Formulaire {{form.valid ? 'valide' : 'invalide'}}</p>
 
-  @if (message) {
-    <student-message>{{ message }}</student-message>
+    @if (message) {
+      <student-message>{{ message }}</student-message>
+    }
+  </section>
 
-  }
+
 
 </div>
