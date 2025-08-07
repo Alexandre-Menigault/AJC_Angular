@@ -5,6 +5,8 @@ import { StudentCardComponent } from './student-card/student-card.component';
 import { StudentFormComponent } from './student-form/student-form.component';
 import { FormsModule } from '@angular/forms';
 import { MessageComponent } from './message/message.component';
+import { StudentSoloComponent } from './student-solo/student-solo.component';
+import {RouterLink} from '@angular/router';
 
 
 
@@ -13,10 +15,11 @@ import { MessageComponent } from './message/message.component';
     StudentListComponent,
     StudentCardComponent,
     StudentFormComponent,
-    MessageComponent
+    MessageComponent,
+    StudentSoloComponent
   ],
   imports: [
-    CommonModule, FormsModule
+    CommonModule, FormsModule, RouterLink
   ],
   exports: [
     StudentListComponent, StudentFormComponent,

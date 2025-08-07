@@ -12,5 +12,8 @@
     @if (isGradeVisible) {
         <p>{{student.grade}}/20</p>
     }
+  <p>
+    <a [routerLink]="['/students', student.id]">Afficher l'étudiant</a>
+  </p>
   <button (click)="deleteStudent()">Delete Student</button>
 </article>
