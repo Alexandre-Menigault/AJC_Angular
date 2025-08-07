@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Inject, Output, signal } from '@angular/core';
 import { Student } from '../student';
 import { StudentService } from '../student.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'student-student-form',
@@ -14,7 +15,10 @@ export class StudentFormComponent {
 
   message: string | null = null;
 
-  constructor( @Inject(StudentService) private studentService: StudentService) { }
+  constructor(
+    private studentService: StudentService,
+    private router: Router
+  ) { }
 
 
 
@@ -25,6 +29,12 @@ export class StudentFormComponent {
         this.student = {name: "", grade: 0}; // Reset form
         this.studentAdded.emit(student); // Emit the added student
         this.message = `Student ${student.id} added successfully!`;
+
+        setTimeout(() => {
+          this.router.navigate(['/students']);
+        }, 3000)
+
+
       },
       error: (err: Error) => {
         this.message = "Error adding student: " + err.message;

@@ -13,22 +13,30 @@ export class PasswordComponent {
   hasNumbers: boolean = false
   hasSpecialChars: boolean = false
 
+  sendToAPI: boolean = false
+
   password: string | null = null
 
-  constructor(@Inject(PasswordService) private passwordService: PasswordService) {
+  constructor(private passwordService: PasswordService) {
   }
 
   generatePassword() {
     const password = this.passwordService.generatePassword(this.passwordLength, this.hasNumbers, this.hasSpecialChars)
-    this.passwordService.sendPassword(password).subscribe({
-      next: (password) => {
-        console.log(password)
-        this.password = password.password
-      },
-      error: (err) => {
-        console.error("Error on password send", err.message())
-      }
-    })
+
+    if(this.sendToAPI) {
+      this.passwordService.sendPassword(password).subscribe({
+        next: (password) => {
+          console.log(password)
+          this.password = password.password
+        },
+        error: (err) => {
+          console.error("Error on password send", err.message())
+        }
+      })
+    } else {
+      this.password = password
+    }
   }
+
 
 }

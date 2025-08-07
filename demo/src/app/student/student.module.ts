@@ -4,6 +4,7 @@ import { StudentListComponent } from './student-list/student-list.component';
 import { StudentCardComponent } from './student-card/student-card.component';
 import { StudentFormComponent } from './student-form/student-form.component';
 import { FormsModule } from '@angular/forms';
+import { MessageComponent } from './message/message.component';
 
 
 
@@ -11,13 +12,14 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     StudentListComponent,
     StudentCardComponent,
-    StudentFormComponent
+    StudentFormComponent,
+    MessageComponent
   ],
   imports: [
     CommonModule, FormsModule
   ],
   exports: [
-    StudentListComponent
+    StudentListComponent, StudentFormComponent,
   ]
 })
 export class StudentModule { }

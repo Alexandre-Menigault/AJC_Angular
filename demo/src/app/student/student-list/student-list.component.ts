@@ -16,6 +16,10 @@ export class StudentListComponent {
   areAllGradesVisible: boolean = false
 
   constructor(private service: StudentService) {
+
+  }
+
+  ngOnInit() {
     this.service.getStudents().subscribe({
       next: (students) => {
         this.students = students;

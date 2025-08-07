@@ -23,8 +23,16 @@
   <exos-quote />
   <exos-toggle-btn />
   <app-students />
-  <exos-city-choice />
+  <student-student-list></student-student-list>
+  <exos-password></exos-password>
 }
 
-<student-student-list></student-student-list>
-<exos-password></exos-password>
+<nav>
+  <ul>
+    <li><a routerLink="/">Home</a></li>
+    <li><a routerLink="/students">Students</a></li>
+    <li><a routerLink="/students/new">Students New</a></li>
+  </ul>
+</nav>
+
+<router-outlet />
